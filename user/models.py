@@ -11,8 +11,9 @@ class CustomUser(AbstractUser):
     picture=models.ImageField(null=True, blank=True, upload_to='media/profiles/', default='profiles/default_pp.png')
     postal_code = models.CharField(max_length=10, unique=True)
     address = models.TextField()
+    is_active = models.BooleanField(default=False)
     def __str__(self):
-        return self.name
+        return self.username
 
 
 class EmailValidation(models.Model):
